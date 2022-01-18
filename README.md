@@ -59,6 +59,10 @@ $ php artisan optimize
 $ exit
 ```
 
+Last but not Least
+==============================================
+There is one Postman Collection in the root directory that can be used to test the application.
+
 Enjoy!
 
 [1]: #configure-the-environment
