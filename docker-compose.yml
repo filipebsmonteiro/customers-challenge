@@ -1,0 +1,52 @@
+version: '3.7'
+
+networks:
+  backend:
+
+volumes:
+  redis-data:
+    driver: local
+
+services:
+    mysql-audit:
+        image: mysql:8.0
+        container_name: ${APP_NAME}-mysql
+        volumes:
+        - "./docker/mysql:/var/lib/mysql"
+        ports:
+        - '3306:3306'
+        environment:
+        - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+        - MYSQL_DATABASE=${DB_DATABASE}
+        - MYSQL_USER=homestead
+        networks:
+        - backend
+
+    php:
+        build:
+            args:
+                user: "${USER}"
+                uid: "${UID}"
+            context: docker/php
+        container_name: ${APP_NAME}-php
+        image: laravel-app
+        working_dir: /var/www/
+        volumes:
+            - ./:/var/www
+        networks:
+            - backend
+
+    nginx:
+        image: nginx:alpine
+        container_name: ${APP_NAME}-nginx
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+        ports:
+            - "80:80"
+        depends_on:
+            - php
+        networks:
+            - backend
+
