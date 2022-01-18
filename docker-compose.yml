@@ -8,7 +8,7 @@ volumes:
     driver: local
 
 services:
-    mysql-audit:
+    mysql:
         image: mysql:8.0
         container_name: ${APP_NAME}-mysql
         volumes:

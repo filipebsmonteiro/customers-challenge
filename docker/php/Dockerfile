@@ -42,11 +42,6 @@ RUN sed -i 's/post_max_size.*$/post_max_size = 100M/g' $PHP_INI_DIR/php.ini
 RUN sed -i 's/max_execution_time.*$/max_execution_time = 600/g' $PHP_INI_DIR/php.ini
 RUN sed -i 's/max_input_time.*$/max_input_time = -1/g' $PHP_INI_DIR/php.ini
 
-# Install redis
-#RUN pecl install -o -f redis \
-#    &&  rm -rf /tmp/pear \
-#    &&  docker-php-ext-enable redis
-
 # Set working directory
 WORKDIR /var/www
 
