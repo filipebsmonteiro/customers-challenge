@@ -1,0 +1,89 @@
+{
+    "info": {
+        "_postman_id": "952c3e57-3c62-4803-b970-175931adb43d",
+        "name": "Customers Challenge",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Import JSON",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "file",
+                            "type": "file",
+                            "src": "/C:/Users/filip/Desktop/challenge.json"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://customerschallenge.local/api/import/json?",
+                    "protocol": "http",
+                    "host": [
+                        "customerschallenge",
+                        "local"
+                    ],
+                    "path": [
+                        "api",
+                        "import",
+                        "json"
+                    ],
+                    "query": [
+                        {
+                            "key": "",
+                            "value": null
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Import JSON Background",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "file",
+                            "type": "file",
+                            "src": "/C:/Users/filip/Desktop/challenge.json"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://customerschallenge.local/api/import/background",
+                    "protocol": "http",
+                    "host": [
+                        "customerschallenge",
+                        "local"
+                    ],
+                    "path": [
+                        "api",
+                        "import",
+                        "background"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
